@@ -1,6 +1,6 @@
 # Sulautettu järjestelmä
 
-Olen Varian ICT opiskelija ja tämä on koulu projekti.
+*Olen Varian ICT opiskelija ja tämä on koulu projekti.*
 
 ## Asennus ohjeet
 
@@ -13,6 +13,6 @@ Päivämäärä | Aika | Tehtävä
 ## Koodikieli esimerkit
 Käytetyt kielet:
  ```
-  *HTML, CSS, Node, React*
+ HTML, CSS, Node, React
  ```
  
