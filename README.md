@@ -13,6 +13,6 @@ Päivämäärä | Aika | Tehtävä
 ## Koodikieli esimerkit
 Käytetyt kielet:
  ```
-  HTML, CSS, Node, React
+  * HTML, CSS, Node, React *
  ```
  
