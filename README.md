@@ -1,1 +1,3 @@
-# Sulautetut
+# Sulautettu järjestelmä
+
+Oskari Koivula
