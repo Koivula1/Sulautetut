@@ -1,6 +1,6 @@
 # Sulautettu järjestelmä
 
-**Oskari Koivula**
+Olen Varian ICT opiskelija ja tämä on koulu projekti.
 
 ## Asennus ohjeet
 
