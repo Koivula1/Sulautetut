@@ -5,21 +5,7 @@ import Search from './components/layout/Search';
 
 function App() {
 
-  const initJobs = [
-    {
-      "id": 1,
-      "tyotehtava": "Lastenhoitaja"
-    },
-    {
-      "id": 2,
-      "tyotehtava": "Siivooja"
-    },
-    {
-      "id": 3,
-      "tyotehtava": "Sairaanhoitaja"
-    }
-
-  ]
+  const initJobs = []
   const [jobs, setJobs] = useState(initJobs);
 
   fetch('http://gis.vantaa.fi/rest/tyopaikat/v1/kaikki')
