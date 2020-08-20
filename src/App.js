@@ -9,21 +9,21 @@ function App() {
   const [jobs, setJobs] = useState(initJobs);
 
   fetch('http://gis.vantaa.fi/rest/tyopaikat/v1/kaikki')
-  .then(response => response.json())
-  .then(json=>setJobs([...json]));
+    .then(response => response.json())
+    .then(json => setJobs([...json]));
 
   const rows = () => jobs.map(job => {
-  return <p><input type="checkbox"/>{job.tyotehtava}, {job.osoite},<a href={job.linkki}> Lisätietoa</a></p>
+    return <p><input type="checkbox" />{job.tyotehtava}, {job.osoite},<a href={job.linkki}> Lisätietoa</a></p>
   })
   return (
     <div>
-    <div>
-      <Header />
+      <div>
+        <Header />
       </div>
       <div className="App">
-      <Search />
-      {rows()}
-    </div>
+        <Search />
+        {rows()}
+      </div>
     </div>
   );
 }

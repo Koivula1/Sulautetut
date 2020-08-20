@@ -7,10 +7,10 @@ function Header() {
         </header>
     )
 }
-const headerStyle ={
-    background:'#808080',
-    color:'#ffffff',
-    padding:'10px'
+const headerStyle = {
+    background: '#808080',
+    color: '#ffffff',
+    padding: '10px'
 }
 
 export default Header
