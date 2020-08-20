@@ -16,10 +16,14 @@ function App() {
     return <p>{job.tyotehtava}</p>
   })
   return (
-    <div className="App">
+    <div>
+    <div>
       <Header />
+      </div>
+      <div className="App">
       <Search />
       {rows()}
+    </div>
     </div>
   );
 }

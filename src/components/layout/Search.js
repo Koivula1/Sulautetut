@@ -2,7 +2,10 @@ import React from 'react';
 
 function Search() {
     return (
-       <input></input>
+    <div>
+        <input></input>
+        <input type="button" value="Search"></input>
+    </div>
     )
 }
 

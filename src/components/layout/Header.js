@@ -10,8 +10,7 @@ function Header() {
 const headerStyle ={
     background:'#808080',
     color:'#ffffff',
-    padding:'10px',
-    textAlign:'left'
+    padding:'10px'
 }
 
 export default Header
