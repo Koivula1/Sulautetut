@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import './components/layout/Header';
 import Header from './components/layout/Header';
+import Search from './components/layout/Search';
 
 function App() {
 
@@ -28,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Search />
       {rows()}
     </div>
   );
