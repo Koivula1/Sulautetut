@@ -3,8 +3,8 @@ import React from 'react';
 function Search() {
     return (
     <div>
-        <input></input>
-        <input type="button" value="Search"></input>
+        <input value="Etsi työpaikkaa"></input>
+        <input type="button" value="Hae"></input>
     </div>
     )
 }
