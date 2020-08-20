@@ -22,6 +22,10 @@ function App() {
   ]
   const [jobs, setJobs] = useState(initJobs);
 
+  fetch('http://gis.vantaa.fi/rest/tyopaikat/v1/kaikki')
+  .then(response => response.json())
+  .then(json=>setJobs([...json]));
+
   const rows = () => jobs.map(job => {
     return <p>{job.tyotehtava}</p>
   })
