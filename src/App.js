@@ -13,7 +13,7 @@ function App() {
   .then(json=>setJobs([...json]));
 
   const rows = () => jobs.map(job => {
-  return <p><input type="checkbox"></input>{job.tyotehtava}, {job.osoite},<a href={job.linkki}> Lisätietoa</a></p>
+  return <p><input type="checkbox"/>{job.tyotehtava}, {job.osoite},<a href={job.linkki}> Lisätietoa</a></p>
   })
   return (
     <div>
