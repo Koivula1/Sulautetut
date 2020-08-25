@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/layout/Header';
 import Search from './components/layout/Search';
 import Jobs from './components/Jobs';
+import Weather from './components/Weather';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 function App() {
 
@@ -16,15 +18,22 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <Router>
       <div>
-        <Header />
+        <div>
+          <Header />
+        </div>
+        <div className="App">
+          <Route path="/weather">
+            <Weather />
+          </Route>
+          <Route path="/">
+            <Search />
+            <Jobs jobs={jobs} />
+          </Route>
+        </div>
       </div>
-      <div className="App">
-        <Search />
-        <Jobs jobs={jobs} />
-      </div>
-    </div>
+    </Router>
   );
 }
 
