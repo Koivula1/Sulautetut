@@ -4,7 +4,7 @@ import Header from './components/layout/Header';
 import Search from './components/layout/Search';
 import Jobs from './components/Jobs';
 import Weather from './components/Weather';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
 
