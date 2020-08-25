@@ -24,13 +24,15 @@ function App() {
           <Header />
         </div>
         <div className="App">
-          <Route path="/weather">
-            <Weather />
-          </Route>
-          <Route path="/">
-            <Search />
-            <Jobs jobs={jobs} />
-          </Route>
+          <Switch>
+            <Route path="/weather">
+              <Weather />
+            </Route>
+            <Route path="/">
+              <Search />
+              <Jobs jobs={jobs} />
+            </Route>
+          </Switch>
         </div>
       </div>
     </Router>
