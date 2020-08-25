@@ -4,7 +4,7 @@ import Job from './Job';
 function Jobs({ jobs }) {
 
     const rows = () => jobs.map(job => {
-    return <Job job={job} key={job.id} />
+        return <Job job={job} key={job.id} />
     })
 
     return (
