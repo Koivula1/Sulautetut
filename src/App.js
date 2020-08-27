@@ -24,7 +24,7 @@ function App() {
   }
   const handleCompleted = (job) => {
     jobs.map((checkJob) => {
-      if (checkJob === job.id) {
+      if (checkJob.id === job.id) {
         checkJob.completed = !checkJob.completed
       }
       console.log(checkJob.id + ' - ' + job.id)
