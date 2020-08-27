@@ -11,6 +11,10 @@ function App() {
   const initJobs = []
   const [jobs, setJobs] = useState(initJobs);
 
+  const handleFilter = (filteringText) => {
+    console.log('Tuli App.jsin filtteriin: ' + filteringText)
+  }
+
   useEffect(() => {
     fetch('http://gis.vantaa.fi/rest/tyopaikat/v1/kaikki')
       .then(response => response.json())
@@ -29,7 +33,7 @@ function App() {
               <Weather />
             </Route>
             <Route path="/">
-              <Search />
+              <Search onFilter={handleFilter}/>
               <Jobs jobs={jobs} />
             </Route>
           </Switch>
