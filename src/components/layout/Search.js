@@ -6,7 +6,6 @@ function Search({onFilter}) {
 
     const handleFilter = (e) => {
         setSearch({[e.target.name]: e.target.value});
-        console.log(e.target.value);
         onFilter(e.target.value)
     }
 

@@ -11,9 +11,31 @@ function App() {
   const initJobs = []
   const [jobs, setJobs] = useState(initJobs);
 
+  const [filterText, setFilterText] = useState('');
+  const [showAll, setShowAll] = useState(true);
+
   const handleFilter = (filteringText) => {
-    console.log('Tuli App.jsin filtteriin: ' + filteringText)
+    setFilterText(filteringText);
+    if (filteringText === '') {
+    }
+    else {
+      setShowAll(false);
+    }
   }
+  const handleCompleted = (job) => {
+    jobs.map((checkJob) => {
+      if (checkJob === job.id) {
+        checkJob.completed = !checkJob.completed
+      }
+      console.log(checkJob.id + ' - ' + job.id)
+    });
+    setJobs([...jobs]);
+
+  }
+
+  const jobsToShow = showAll
+    ? jobs
+    : jobs.filter(job => job.tyotehtava.toUpperCase().includes(filterText.toUpperCase()))
 
   useEffect(() => {
     fetch('http://gis.vantaa.fi/rest/tyopaikat/v1/kaikki')
@@ -33,8 +55,8 @@ function App() {
               <Weather />
             </Route>
             <Route path="/">
-              <Search onFilter={handleFilter}/>
-              <Jobs jobs={jobs} />
+              <Search onFilter={handleFilter} />
+              <Jobs onCompleted={handleCompleted} jobs={jobsToShow} />
             </Route>
           </Switch>
         </div>
