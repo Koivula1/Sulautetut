@@ -7,7 +7,7 @@ function Header() {
             <h1>Ajankohtaista Vantaalla
             <img src="vantaa.png" alt="vantaa" width="70" height="70"/>
             </h1>
-            <Link to="/" style={linkStyle}> Työpaikat</Link> | <Link to="/weather" style={linkStyle}> Säätiedot</Link>
+            <Link to="/" style={linkStyle}> Työpaikat</Link> | <Link to="/weather" style={linkStyle}> Sääasema</Link>
         </header>
     )
 }

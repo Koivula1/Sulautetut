@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function Job({ job, onCompleted }) {
-
-    const [checked] = useState(false);
 
     const handleCompleted = () => {
         onCompleted(job);
@@ -18,7 +16,7 @@ function Job({ job, onCompleted }) {
             <tbody>
                 <tr>
                     <td width="1%">
-                        <input type="checkbox" defaultChecked={checked} onChange={handleCompleted} />
+                        <input type="checkbox" defaultChecked={job.completed} onChange={handleCompleted} />
                     </td>
                     <td width="59%">
                         {job.tyotehtava}
