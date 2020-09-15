@@ -27,7 +27,7 @@ function App() {
       if (checkJob.id === job.id) {
         checkJob.completed = !checkJob.completed
       }
-      console.log(checkJob.id + ' - ' + job.id)
+      //console.log(checkJob.id + ' - ' + job.id)
     });
     setJobs([...jobs]);
 
