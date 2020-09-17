@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { VictoryChart, VictoryLine, VictoryBar, VictoryAxis, VictoryVoronoiContainer, VictoryGroup, VictoryTooltip, VictoryScatter } from 'victory';
-//https://funcvariaiot.azurewebsites.net/api/HttpTriggerGetIotData?code=qO5qkShg0osHqY0BB2nfXI/anPgQ/K/3mIF7VTCFfaTdrvo6wl6DKw==
 
 function Weather() {
     const today = new Date();
@@ -14,9 +13,12 @@ function Weather() {
         .then(json => setWeather([...json]));
 
     const rows = () => weather.slice(0, 24).reverse().map(temphum => {
-        const measurementDate = temphum.PublishedAt.split('T')[0].split('-')[2] + "." + temphum.PublishedAt.split('T')[0].split('-')[1] + "." + temphum.PublishedAt.split('T')[0].split('-')[0]
-        const measurementTime = temphum.PublishedAt.split('T')[1].split(':')[0] + ":" + temphum.PublishedAt.split('T')[1].split(':')[1]
-        return <div><b>Pvm. </b>{measurementDate}, <b>klo: </b>{measurementTime} <b>Ilmankosteus</b> {temphum.Hum.split('.')[0]}% <b>Lämpötila</b> {temphum.Temp.split('.')[0]}°C</div>
+        const measurementDate = temphum.PublishedAt.split('T')[0].split('-')[2] + "." + temphum.PublishedAt.
+            split('T')[0].split('-')[1] + "." + temphum.PublishedAt.split('T')[0].split('-')[0]
+        const measurementTime = temphum.PublishedAt.split('T')[1].split(':')[0] + ":" + temphum.PublishedAt.
+            split('T')[1].split(':')[1]
+        return <div><b>Pvm. </b>{measurementDate}, <b>klo: </b>{measurementTime} <b>Ilmankosteus </b>
+            {temphum.Hum.split('.')[0]}% <b>Lämpötila </b>{temphum.Temp.split('.')[0]}°C</div>
     })
 
     return (
@@ -32,7 +34,7 @@ function Weather() {
             </div>
             <h2>Lämpötila</h2>
 
-            
+
         </div>
 
 
