@@ -2,30 +2,36 @@ import React, { useState } from 'react';
 import { VictoryChart, VictoryLine, VictoryBar, VictoryAxis, VictoryVoronoiContainer, VictoryGroup, VictoryTooltip, VictoryScatter } from 'victory';
 
 function Weather() {
+
+    function convertUTCDateToLocalDate(date) {
+        new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
+        return date;
+    }
     const today = new Date();
     const date = today.getDate() + "." + parseInt(today.getMonth() + 1) + "." + today.getFullYear();
 
     const initWeather = [];
     const [weather, setWeather] = useState(initWeather);
 
-    fetch('https://funcvariaiot.azurewebsites.net/api/HttpTriggerGetIotData?code=qO5qkShg0osHqY0BB2nfXI/anPgQ/K/3mIF7VTCFfaTdrvo6wl6DKw==')
+    fetch('https://funcvariaiot.azurewebsites.net/api/HttpTriggerGetIotData?code=qO5qkShg0osHqY0BB2nfXI/anPgQ/K/3mIF7VTCFfaTdrvo6wl6DKw==&amount=500')
         .then(response => response.json())
         .then(json => setWeather([...json]));
+
+    const deviceToShow = weather.filter(device => device.DeviceId.includes('37002e001947393035313138'));
 
     let humtempkey = 1;
     let chartTempData = [];
     let chartHumData = [];
-    const rows = () => weather.slice(0, 24).reverse().map(temphum => {
+    const rows = () => deviceToShow.slice(0, 10).reverse().map(temphum => {
+        const fixedTime = String(convertUTCDateToLocalDate(new Date(temphum.PublishedAt)));
         const measurementDate = temphum.PublishedAt.split('T')[0].split('-')[2] + "." + temphum.PublishedAt.split('T')[0].split('-')[1] + "." + temphum.PublishedAt.split('T')[0].split('-')[0]
-        const measurementTime = temphum.PublishedAt.split('T')[1].split(':')[0] + ":" + temphum.PublishedAt.split('T')[1].split(':')[1]
-        chartTempData.push({ x: String(measurementTime), y: parseInt(temphum.Temp) });
-        chartHumData.push({ experiment: String(measurementTime), actual: parseInt(temphum.Hum), label: String(temphum.Hum.split(".")[0]) + "%" });
-        return <div key={humtempkey++}><b>Pvm. </b>{measurementDate}, <b>klo: </b>{measurementTime} <b>Ilmankosteus </b>{temphum.Hum.split('.')[0]}% <b>Lämpötila </b>{temphum.Temp.split('.')[0]}°C</div>
+        const time = fixedTime.split(' ')[4].split(':')[0] + ":" + fixedTime.split(' ')[4].split(':')[1] + ":" + fixedTime.split(' ')[4].split(':')[2];
+        chartTempData.push({ x: String(time), y: parseInt(temphum.Temp) });
+        chartHumData.push({ experiment: String(time), actual: parseInt(temphum.Hum), label: String(temphum.Hum.split(".")[0]) + "%" });
+        return <div key={humtempkey++}><b>Pvm. </b>{measurementDate}, <b>klo: </b>{time} <b>Ilmankosteus </b>{temphum.Hum.split('.')[0]}% <b>Lämpötila </b>{temphum.Temp.split('.')[0]}°C</div>
     })
-    console.log(chartTempData);
     const showTemperature = chartTempData;
     const showHumidity = chartHumData;
-
     return (
         <div align="center">
             <div>
@@ -52,14 +58,14 @@ function Weather() {
                     }
                     data={showTemperature}
                 >
-                    <VictoryLine 
-                    style={{
-                        data:
-                            { strokeWidth: 3 }
-                    }}
+                    <VictoryLine
+                        style={{
+                            data:
+                                { strokeWidth: 3 }
+                        }}
                     />
                     <VictoryScatter
-                        color= "black"
+                        color="black"
                         size={({ active }) => active ? 8 : 3}
                     />
                 </VictoryGroup>
